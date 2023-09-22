@@ -1,9 +1,9 @@
 ansible-openwisp2
 =================
 
-[![Installing OpenWISP2](https://raw.githubusercontent.com/openwisp/ansible-openwisp2/master/docs/install-openwisp2.png)](https://www.youtube.com/watch?v=v_DUeFUGG8Q&index=1&list=PLPueLZei9c8_DEYgC5StOcR5bCAcQVfR8)
+[![Installing OpenWISP2](https://raw.githubusercontent.com/openwisp/tepseg-labansible-openwisp2-tmp/master/docs/install-openwisp2.png)](https://www.youtube.com/watch?v=v_DUeFUGG8Q&index=1&list=PLPueLZei9c8_DEYgC5StOcR5bCAcQVfR8)
 
-[![Build Status](https://github.com/tepseg-lab/ansible-openwisp2/workflows/Ansible%20OpenWISP2%20CI%20Build/badge.svg?branch=master)](https://github.com/tepseg-lab/ansible-openwisp2/actions?query=workflow%3A%22Ansible+OpenWISP2+CI+Build%22)
+[![Build Status](https://github.com/tepseg-lab/tepseg-labansible-openwisp2-tmp/workflows/Ansible%20OpenWISP2%20CI%20Build/badge.svg?branch=master)](https://github.com/tepseg-lab/tepseg-labansible-openwisp2-tmp/actions?query=workflow%3A%22Ansible+OpenWISP2+CI+Build%22)
 [![Galaxy](http://img.shields.io/badge/galaxy-openwisp.openwisp2-blue.svg?style=flat-square)](https://galaxy.ansible.com/openwisp/openwisp2/)
 [![Galaxy](https://img.shields.io/ansible/role/d/14542.svg?style=flat-square)](https://galaxy.ansible.com/openwisp/openwisp2/)
 [![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg?style=flat-square)](https://gitter.im/openwisp/general)
@@ -35,7 +35,7 @@ Architecture
 
 For more information, see [TEPSEG Architecture](https://openwisp.io/docs/general/architecture.html).
 
-[![openwisp2 modules diagram](https://raw.githubusercontent.com/openwisp/ansible-openwisp2/master/docs/openwisp2-modules-diagram.png)](https://openwisp.io/docs/general/architecture.html)
+[![openwisp2 modules diagram](https://raw.githubusercontent.com/openwisp/tepseg-labansible-openwisp2-tmp/master/docs/openwisp2-modules-diagram.png)](https://openwisp.io/docs/general/architecture.html)
 
 System Requirements
 ===================
@@ -333,7 +333,7 @@ however we need to change a few things to get ansible working.
 Proceed with the installation as shown in the guide linked above, and come back
 here when you see this screen:
 
-![Screenshot of the Software Selection screen](https://raw.githubusercontent.com/openwisp/ansible-openwisp2/master/docs/debian-software-selection.png)
+![Screenshot of the Software Selection screen](https://raw.githubusercontent.com/openwisp/tepseg-labansible-openwisp2-tmp/master/docs/debian-software-selection.png)
 
 We're only running this as a server, so you can uncheck `Debian desktop environment`.
 Make sure `SSH server` and `standard system utilities` are checked.
@@ -344,7 +344,7 @@ and assign an IP address to the VM.
 - On the Main VirtualBox page, Go to `File > Host Network Manager`
 - Click the <kbd>+</kbd> icon to create a new adapter
 - Set the IPv4 address to `192.168.56.1` and the IPv4 Network Mask to `255.255.255.0`. You may need to select `Configure Adapter Manually` to do this. The IPv6 settings can be ignored
-  ![Screenshot of the Host-only network configuration screen](https://raw.githubusercontent.com/openwisp/ansible-openwisp2/master/docs/host-only-network.png)
+  ![Screenshot of the Host-only network configuration screen](https://raw.githubusercontent.com/openwisp/tepseg-labansible-openwisp2-tmp/master/docs/host-only-network.png)
 - Shut off your VM
 - In your VM settings, in the Network section, click Adapter 2 and Enable this Adapter
 - Select Host-only adapter and the name of the adapter you created
@@ -873,7 +873,7 @@ This role has many variables values that can be changed to best suit
 your needs.
 
 Below are listed all the variables you can customize (you may also want to take a look at
-[the default values of these variables](https://github.com/tepseg-lab/ansible-openwisp2/blob/master/defaults/main.yml)).
+[the default values of these variables](https://github.com/tepseg-lab/tepseg-labansible-openwisp2-tmp/blob/master/defaults/main.yml)).
 
 ```yaml
 - hosts: yourhost

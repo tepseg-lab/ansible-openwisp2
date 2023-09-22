@@ -27,7 +27,7 @@
 - **Backward incompatible change**: simplified installation of
   custom modules, the variables with `_pip` suffix have been abandoned
   in favour of supplying the full version in the variables having
-  `_version` suffix, for more information please see [[change!] Simplify installation of custom modules #193](https://github.com/tepseg-lab/ansible-openwisp2/commit/3c651a0179ecd7881cd6f388ee4a7d0a8c5a7689)
+  `_version` suffix, for more information please see [[change!] Simplify installation of custom modules #193](https://github.com/tepseg-lab/tepseg-labansible-openwisp2-tmp/commit/3c651a0179ecd7881cd6f388ee4a7d0a8c5a7689)
 - `openwisp2_firmware_upgrader_max_file_size` now sets
   `OPENWISP_FIRMWARE_UPGRADER_MAX_FILE_SIZE` in `settings.py` and
   updates `client_max_body_size` in nginx config.
