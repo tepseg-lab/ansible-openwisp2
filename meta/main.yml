@@ -21,7 +21,7 @@ galaxy_info:
   description: Official role to install and upgrade openwisp2 controller
   license: BSD
   min_ansible_version: "2.10"
-  issue_tracker_url: https://github.com/tepseg-lab/tepseg-labansible-openwisp2-tmp/issues
+  issue_tracker_url: https://github.com/tepseg-lab/tepseg-labansible-openwisp2issues
   platforms:
     - name: Debian
       versions:
