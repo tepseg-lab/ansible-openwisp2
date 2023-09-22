@@ -1,4 +1,61 @@
-ansible-openwisp2
+# install ansible galaxy
+```
+ansible-galaxy install tepseg_ab.openwisp2 tepseg_ab.easyrsa tepseg_ab.openvpn
+```
+
+# ansible hosts
+```yaml
+[tepseg]
+{{ destination ip / domain }}
+```
+
+# playbook.yml
+```yaml
+- hosts: tepseg
+  become: "{{ become | default('yes') }}"
+  roles:
+    - role: tepseg_ab.openwisp2
+    - role: tepseg_ab.easyrsa
+    - role: tepseg_ab.openvpn
+    - role: tepseg_ab.wifi_login_pages
+  vars:
+    # Enable the modules you want to use
+    openwisp2_network_topology: true
+    openwisp2_firmware_upgrader: true
+    openwisp2_radius: true
+    openwisp2_monitoring: true
+    openwisp2_freeradius_install: true
+    # set to false when you don't want to register openwisp-radius
+    # API endpoints.
+    openwisp2_radius_urls: true
+    # you may replace the values of these variables with any value or URL
+    # supported by pip (the python package installer)
+    # use these to install forks, branches or development versions
+    # WARNING: only do this if you know what you are doing; disruption
+    # of service is very likely to occur if these variables are changed
+    # without careful analysis and testing
+    openwisp2_controller_version: "openwisp-controller~=1.0.0"
+    openwisp2_network_topology_version: "openwisp-network-topology~=1.0.0"
+    openwisp2_firmware_upgrader_version: "openwisp-firmware-upgrader~=1.0.0"
+    openwisp2_radius_version: "openwisp-radius~=1.0.0"
+    openwisp2_django_version: "django~=3.2.13"
+
+    # EasyRSA
+    easyrsa_generate_dh: true
+    easyrsa_servers:
+      - name: server
+    easyrsa_clients: []
+    easyrsa_pki_dir: /etc/easyrsa/pki
+
+    # OpenVPN
+    openvpn_keydir: "{{ easyrsa_pki_dir }}"
+    openvpn_clients: []
+    openvpn_use_pam: false
+
+    #Wifi Login Page
+    wifi_login_pages_domains: ["wifi-login-page url"]
+```
+
 =================
 
 [![Installing OpenWISP2](https://raw.githubusercontent.com/openwisp/ansible-openwisp2/master/docs/install-openwisp2.png)](https://www.youtube.com/watch?v=v_DUeFUGG8Q&index=1&list=PLPueLZei9c8_DEYgC5StOcR5bCAcQVfR8)
