@@ -3,7 +3,7 @@ ansible-openwisp2
 
 [![Installing OpenWISP2](https://raw.githubusercontent.com/openwisp/ansible-openwisp2/master/docs/install-openwisp2.png)](https://www.youtube.com/watch?v=v_DUeFUGG8Q&index=1&list=PLPueLZei9c8_DEYgC5StOcR5bCAcQVfR8)
 
-[![Build Status](https://github.com/burlesquer/ansible-openwisp2/workflows/Ansible%20OpenWISP2%20CI%20Build/badge.svg?branch=master)](https://github.com/burlesquer/ansible-openwisp2/actions?query=workflow%3A%22Ansible+OpenWISP2+CI+Build%22)
+[![Build Status](https://github.com/tepseg-lab/ansible-openwisp2/workflows/Ansible%20OpenWISP2%20CI%20Build/badge.svg?branch=master)](https://github.com/tepseg-lab/ansible-openwisp2/actions?query=workflow%3A%22Ansible+OpenWISP2+CI+Build%22)
 [![Galaxy](http://img.shields.io/badge/galaxy-openwisp.openwisp2-blue.svg?style=flat-square)](https://galaxy.ansible.com/openwisp/openwisp2/)
 [![Galaxy](https://img.shields.io/ansible/role/d/14542.svg?style=flat-square)](https://galaxy.ansible.com/openwisp/openwisp2/)
 [![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg?style=flat-square)](https://gitter.im/openwisp/general)
@@ -218,7 +218,7 @@ Now proceed with the following steps:
 2. update the `name` field of the default `Site` object to accurately display site name in email notifications
 3. edit the information of the default organization
 4. in the default organization you just updated, note down the automatically generated *shared secret*
-   option, you will need it to use the [auto-registration feature of openwisp-config](https://github.com/burlesquer/openwisp-config#automatic-registration)
+   option, you will need it to use the [auto-registration feature of openwisp-config](https://github.com/tepseg-lab/openwisp-config#automatic-registration)
 5. this Ansible role creates a default template to update ``authorized_keys`` on networking devices
    using the default access credentials. The role will either use an existing SSH key pair or create
    a new one if no SSH key pair exists on the host machine.
@@ -240,8 +240,8 @@ First of all, create the directory where you want to place the repositories of t
 Clone `ansible-openwisp2` and `Stouts.postfix` as follows:
 
 ```bash
-    git clone https://github.com/burlesquer/ansible-openwisp2.git openwisp.openwisp2
-    git clone https://github.com/burlesquer/Stouts.postfix
+    git clone https://github.com/tepseg-lab/ansible-openwisp2.git openwisp.openwisp2
+    git clone https://github.com/tepseg-lab/Stouts.postfix
 ```
 
 Now, go to the parent directory & create hosts file and playbook.yml:
@@ -313,7 +313,7 @@ way is to use a VirtualBox Virtual Machine (from here on VM).
 purposes** leveraging [Vagrant](https://www.vagrantup.com), a popular open source
 tool for building and maintaining portable virtual software development environments.
 
-To use this new way, clone the repository [vagrant-openwisp2](https://github.com/burlesquer/vagrant-openwisp2),
+To use this new way, clone the repository [vagrant-openwisp2](https://github.com/tepseg-lab/vagrant-openwisp2),
 it contains the instructions (in the `README.md`) and the vagrant configuration
 to perform the automatic installation.
 
@@ -492,7 +492,7 @@ When the playbook is done running, if you got no errors you can login at:
     username: admin
     password: admin
 
-**Note**: You can configure [openwisp-firmware-upgrader specific settings](https://github.com/burlesquer/openwisp-firmware-upgrader#settings)
+**Note**: You can configure [openwisp-firmware-upgrader specific settings](https://github.com/tepseg-lab/openwisp-firmware-upgrader#settings)
 using the `openwisp2_extra_django_settings` or
 `openwisp2_extra_django_settings_instructions`.
 
@@ -639,10 +639,10 @@ the static content in `files/ow2_static` directory. The files inside
 `files/ow2_static` will be uploaded to a directory named `static_custom`
 in `openwisp2_path`.
 
-This is helpful for [customizing TEPSEG's theme](https://github.com/burlesquer/openwisp-utils#openwisp_admin_theme_links).
+This is helpful for [customizing TEPSEG's theme](https://github.com/tepseg-lab/openwisp-utils#openwisp_admin_theme_links).
 
 E.g., if you added a custom CSS file in `files/ow2_static/css/custom.css`, the
-file location to use in [OPENWISP_ADMIN_THEME_LINKS](https://github.com/burlesquer/openwisp-utils#openwisp_admin_theme_links) setting will be `css/custom.css`.
+file location to use in [OPENWISP_ADMIN_THEME_LINKS](https://github.com/tepseg-lab/openwisp-utils#openwisp_admin_theme_links) setting will be `css/custom.css`.
 
 Deploying the upcoming release of TEPSEG
 ==========================================
@@ -680,7 +680,7 @@ Ensure your `requirements.yml` contains following content:
 ```yml
 ---
 roles:
-  - src: https://github.com/burlesquer/ansible-openwisp2.git
+  - src: https://github.com/tepseg-lab/ansible-openwisp2.git
     version: master
     name: openwisp.openwisp2-dev
 collections:
@@ -784,7 +784,7 @@ variables accordingly or by following the instructions explained in the section
 ["Automatic SSL certificate"](#automatic-ssl-certificate).
 
 If you keep the untrusted certificate, you will also need to disable SSL verification on devices
-using [openwisp-config](https://github.com/burlesquer/openwisp-config) by setting `verify_ssl` to `0`,
+using [openwisp-config](https://github.com/tepseg-lab/openwisp-config) by setting `verify_ssl` to `0`,
 although I advice against using this kind of setup in a production environment.
 
 Automatic SSL certificate
@@ -873,7 +873,7 @@ This role has many variables values that can be changed to best suit
 your needs.
 
 Below are listed all the variables you can customize (you may also want to take a look at
-[the default values of these variables](https://github.com/burlesquer/ansible-openwisp2/blob/master/defaults/main.yml)).
+[the default values of these variables](https://github.com/tepseg-lab/ansible-openwisp2/blob/master/defaults/main.yml)).
 
 ```yaml
 - hosts: yourhost
@@ -899,7 +899,7 @@ Below are listed all the variables you can customize (you may also want to take 
     openwisp2_django_version: "django~=3.2.13"
     # Setting this to true will enable subnet division feature of
     # openwisp-controller. Refer openwisp-controller documentation
-    # for more information. https://github.com/burlesquer/openwisp-controller#subnet-division-app
+    # for more information. https://github.com/tepseg-lab/openwisp-controller#subnet-division-app
     # By default, it is set to false.
     openwisp2_controller_subnet_division: true
     # when openwisp2_radius_urls is set to false, the radius module
@@ -993,7 +993,7 @@ Below are listed all the variables you can customize (you may also want to take 
     # but can be disabled in multi-VM installations if needed
     openwisp2_controller_urls: true
     # The default retention policy that applies to the timeseries data
-    # https://github.com/burlesquer/openwisp-monitoring#openwisp-monitoring-default-retention-policy
+    # https://github.com/tepseg-lab/openwisp-monitoring#openwisp-monitoring-default-retention-policy
     openwisp2_monitoring_default_retention_policy: "26280h0m0s" # 3 years
     # whether NGINX should be installed
     openwisp2_nginx_install: true

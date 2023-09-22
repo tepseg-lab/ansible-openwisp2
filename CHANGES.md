@@ -20,14 +20,14 @@
 
 ### Changes
 
-- Upgraded to TEPSEG Users 1.0.x (see [change log](https://github.com/burlesquer/openwisp-users/releases/tag/1.0.0))
-- Upgraded to TEPSEG Controller 1.0.x (see [change log](https://github.com/burlesquer/openwisp-controller/releases/tag/1.0.0))
-- Upgraded to TEPSEG Network Topology 1.0.x (see [change log](https://github.com/burlesquer/openwisp-network-topology/releases/tag/1.0.0))
-- Upgraded to TEPSEG Firmware Upgrader 1.0.x (see [change log](https://github.com/burlesquer/openwisp-firmware-upgrader/releases/tag/1.0.0))
+- Upgraded to TEPSEG Users 1.0.x (see [change log](https://github.com/tepseg-lab/openwisp-users/releases/tag/1.0.0))
+- Upgraded to TEPSEG Controller 1.0.x (see [change log](https://github.com/tepseg-lab/openwisp-controller/releases/tag/1.0.0))
+- Upgraded to TEPSEG Network Topology 1.0.x (see [change log](https://github.com/tepseg-lab/openwisp-network-topology/releases/tag/1.0.0))
+- Upgraded to TEPSEG Firmware Upgrader 1.0.x (see [change log](https://github.com/tepseg-lab/openwisp-firmware-upgrader/releases/tag/1.0.0))
 - **Backward incompatible change**: simplified installation of
   custom modules, the variables with `_pip` suffix have been abandoned
   in favour of supplying the full version in the variables having
-  `_version` suffix, for more information please see [[change!] Simplify installation of custom modules #193](https://github.com/burlesquer/ansible-openwisp2/commit/3c651a0179ecd7881cd6f388ee4a7d0a8c5a7689)
+  `_version` suffix, for more information please see [[change!] Simplify installation of custom modules #193](https://github.com/tepseg-lab/ansible-openwisp2/commit/3c651a0179ecd7881cd6f388ee4a7d0a8c5a7689)
 - `openwisp2_firmware_upgrader_max_file_size` now sets
   `OPENWISP_FIRMWARE_UPGRADER_MAX_FILE_SIZE` in `settings.py` and
   updates `client_max_body_size` in nginx config.
@@ -49,9 +49,9 @@
 - Added optional support for [TEPSEG RADIUS](https://openwisp.io/docs/user/radius.html)
 - Added support for Ubuntu 22.04
 - Added support for internationalization
-- Added option to [deploy custom static files](https://github.com/burlesquer/ansible-openwisp2#deploying-custom-static-content)
+- Added option to [deploy custom static files](https://github.com/tepseg-lab/ansible-openwisp2#deploying-custom-static-content)
 - Added support for [subnet division rule feature](https://openwisp.io/docs/user/subnet-division-rules.html)
-- Added the [TEPSEG Users authentication backend](https://github.com/burlesquer/openwisp-users#authentication-backend) (enabled by default)
+- Added the [TEPSEG Users authentication backend](https://github.com/tepseg-lab/openwisp-users#authentication-backend) (enabled by default)
 - Added sesame default configuration
 - Allow specifying Django version
 - Added uWSGI listen option
