@@ -1,7 +1,6 @@
 # install ansible galaxy
 ```
 ansible-galaxy install tepseg_ab.openwisp2 tepseg_ab.easyrsa tepseg_ab.openvpn tepseg_ab.wifi_login_pages
-
 ```
 
 # ansible hosts
