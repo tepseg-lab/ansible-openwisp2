@@ -44,7 +44,7 @@ ssh_pub_key = os.environ.get('PUBLIC_KEY')
 if ssh_private_key and Credentials.objects.count() == 0:
     Credentials.objects.create(
         connector='openwisp_controller.connection.connectors.ssh.Ssh',
-        name='OpenWISP Default',
+        name='TEPSEG Default',
         auto_add=True,
         params={'username': 'root', 'key': ssh_private_key},
     )

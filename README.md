@@ -3,12 +3,12 @@ ansible-openwisp2
 
 [![Installing OpenWISP2](https://raw.githubusercontent.com/openwisp/ansible-openwisp2/master/docs/install-openwisp2.png)](https://www.youtube.com/watch?v=v_DUeFUGG8Q&index=1&list=PLPueLZei9c8_DEYgC5StOcR5bCAcQVfR8)
 
-[![Build Status](https://github.com/openwisp/ansible-openwisp2/workflows/Ansible%20OpenWISP2%20CI%20Build/badge.svg?branch=master)](https://github.com/openwisp/ansible-openwisp2/actions?query=workflow%3A%22Ansible+OpenWISP2+CI+Build%22)
+[![Build Status](https://github.com/burlesquer/ansible-openwisp2/workflows/Ansible%20OpenWISP2%20CI%20Build/badge.svg?branch=master)](https://github.com/burlesquer/ansible-openwisp2/actions?query=workflow%3A%22Ansible+OpenWISP2+CI+Build%22)
 [![Galaxy](http://img.shields.io/badge/galaxy-openwisp.openwisp2-blue.svg?style=flat-square)](https://galaxy.ansible.com/openwisp/openwisp2/)
 [![Galaxy](https://img.shields.io/ansible/role/d/14542.svg?style=flat-square)](https://galaxy.ansible.com/openwisp/openwisp2/)
 [![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg?style=flat-square)](https://gitter.im/openwisp/general)
 
-Ansible role that installs the OpenWISP Server Application.
+Ansible role that installs the TEPSEG Server Application.
 
 Tested on **Debian (Bullseye)**, **Ubuntu (20/22 LTS)**.
 
@@ -19,28 +19,28 @@ Tested on **Debian (Bullseye)**, **Ubuntu (20/22 LTS)**.
 Demo
 ====
 
-[Try the OpenWISP Demo](https://openwisp.org/demo.html) to get a quick
-overview of what OpenWISP can do for you.
+[Try the TEPSEG Demo](https://openwisp.org/demo.html) to get a quick
+overview of what TEPSEG can do for you.
 
-Help OpenWISP
+Help TEPSEG
 =============
 
-Like OpenWISP? Find out how to help us!
+Like TEPSEG? Find out how to help us!
 
 - [Help us to grow our community](http://openwisp.io/docs/general/help-us.html)
-- [How to contribute to OpenWISP](http://openwisp.io/docs/developer/contributing.html)
+- [How to contribute to TEPSEG](http://openwisp.io/docs/developer/contributing.html)
 
 Architecture
 ============
 
-For more information, see [OpenWISP Architecture](https://openwisp.io/docs/general/architecture.html).
+For more information, see [TEPSEG Architecture](https://openwisp.io/docs/general/architecture.html).
 
 [![openwisp2 modules diagram](https://raw.githubusercontent.com/openwisp/ansible-openwisp2/master/docs/openwisp2-modules-diagram.png)](https://openwisp.io/docs/general/architecture.html)
 
 System Requirements
 ===================
 
-The following specifications will run a new, *empty* instance of OpenWISP.
+The following specifications will run a new, *empty* instance of TEPSEG.
 Please ensure you account for the amount of disk space your use case will require, e.g. allocate
 enough space for users to upload floor plan images.
 
@@ -63,7 +63,7 @@ Software
 --------
 
 Generally a fresh installation of one of the supported operating systems is sufficient; no pre-configuration required.  The
-Ansible Playbook will install and configure all dependencies and leave you with a running OpenWISP installation.
+Ansible Playbook will install and configure all dependencies and leave you with a running TEPSEG installation.
 
 Tips: Ensure the hostname of your target machine matches what is in your Ansible configuration file.  Also, please ensure
 that Ansible can access your target machine by SSH, be it either with a key or password.  For more information see the
@@ -182,7 +182,7 @@ program to run each command. You may remove this line if you don't need it (eg: 
 You may replace `openwisp2` on the `hosts` field with your production server's hostname if you desire.
 
 Substitute `openwisp2@openwisp2.mydomain.com` with what you deem most appropriate
-as default sender for emails sent by OpenWISP 2.
+as default sender for emails sent by TEPSEG 2.
 
 Run the playbook
 ----------------
@@ -218,13 +218,13 @@ Now proceed with the following steps:
 2. update the `name` field of the default `Site` object to accurately display site name in email notifications
 3. edit the information of the default organization
 4. in the default organization you just updated, note down the automatically generated *shared secret*
-   option, you will need it to use the [auto-registration feature of openwisp-config](https://github.com/openwisp/openwisp-config#automatic-registration)
+   option, you will need it to use the [auto-registration feature of openwisp-config](https://github.com/burlesquer/openwisp-config#automatic-registration)
 5. this Ansible role creates a default template to update ``authorized_keys`` on networking devices
    using the default access credentials. The role will either use an existing SSH key pair or create
    a new one if no SSH key pair exists on the host machine.
 
 Now you are ready to start configuring your network! **If you need help** you can ask questions
-on one of the official [OpenWISP Support Channels](http://openwisp.org/support.html).
+on one of the official [TEPSEG Support Channels](http://openwisp.org/support.html).
 
 Install ansible-openwisp2 for development
 -----------------------------------------
@@ -240,8 +240,8 @@ First of all, create the directory where you want to place the repositories of t
 Clone `ansible-openwisp2` and `Stouts.postfix` as follows:
 
 ```bash
-    git clone https://github.com/openwisp/ansible-openwisp2.git openwisp.openwisp2
-    git clone https://github.com/Stouts/Stouts.postfix
+    git clone https://github.com/burlesquer/ansible-openwisp2.git openwisp.openwisp2
+    git clone https://github.com/burlesquer/Stouts.postfix
 ```
 
 Now, go to the parent directory & create hosts file and playbook.yml:
@@ -304,22 +304,22 @@ If you don't get any error message it means that the tests ran successfully with
 Install OpenWISP2 for testing in a VirtualBox VM
 -------------------------------------------------
 
-If you want to try out **OpenWISP 2** in your own development environment, the safest
+If you want to try out **TEPSEG 2** in your own development environment, the safest
 way is to use a VirtualBox Virtual Machine (from here on VM).
 
 ### Using Vagrant
 
-**Since August 2018 there's a new fast and easy way to install OpenWISP 2 for testing
+**Since August 2018 there's a new fast and easy way to install TEPSEG 2 for testing
 purposes** leveraging [Vagrant](https://www.vagrantup.com), a popular open source
 tool for building and maintaining portable virtual software development environments.
 
-To use this new way, clone the repository [vagrant-openwisp2](https://github.com/openwisp/vagrant-openwisp2),
+To use this new way, clone the repository [vagrant-openwisp2](https://github.com/burlesquer/vagrant-openwisp2),
 it contains the instructions (in the `README.md`) and the vagrant configuration
 to perform the automatic installation.
 
 Alternatively, you can read on to learn how to install *VirtualBox* and run
 *ansible-openwisp2* manually, this is useful if you need to test advanced
-customisations of *OpenWISP*.
+customisations of *TEPSEG*.
 
 ### Installing Debian 9 on VirtualBox
 
@@ -492,7 +492,7 @@ When the playbook is done running, if you got no errors you can login at:
     username: admin
     password: admin
 
-**Note**: You can configure [openwisp-firmware-upgrader specific settings](https://github.com/openwisp/openwisp-firmware-upgrader#settings)
+**Note**: You can configure [openwisp-firmware-upgrader specific settings](https://github.com/burlesquer/openwisp-firmware-upgrader#settings)
 using the `openwisp2_extra_django_settings` or
 `openwisp2_extra_django_settings_instructions`.
 
@@ -564,7 +564,7 @@ look for the word "radius" in the
 Configuring CORS Headers
 ------------------------
 
-While integrating OpenWISP with external services, you can
+While integrating TEPSEG with external services, you can
 run into issues related to [CORS (Cross-Origin Resource Sharing)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS). This role
 allows users to configure the CORS headers with the help of
 [django-cors-headers](https://github.com/adamchainz/django-cors-headers)
@@ -639,15 +639,15 @@ the static content in `files/ow2_static` directory. The files inside
 `files/ow2_static` will be uploaded to a directory named `static_custom`
 in `openwisp2_path`.
 
-This is helpful for [customizing OpenWISP's theme](https://github.com/openwisp/openwisp-utils#openwisp_admin_theme_links).
+This is helpful for [customizing TEPSEG's theme](https://github.com/burlesquer/openwisp-utils#openwisp_admin_theme_links).
 
 E.g., if you added a custom CSS file in `files/ow2_static/css/custom.css`, the
-file location to use in [OPENWISP_ADMIN_THEME_LINKS](https://github.com/openwisp/openwisp-utils#openwisp_admin_theme_links) setting will be `css/custom.css`.
+file location to use in [OPENWISP_ADMIN_THEME_LINKS](https://github.com/burlesquer/openwisp-utils#openwisp_admin_theme_links) setting will be `css/custom.css`.
 
-Deploying the upcoming release of OpenWISP
+Deploying the upcoming release of TEPSEG
 ==========================================
 
-The following steps will help you set up and install the new version of OpenWISP
+The following steps will help you set up and install the new version of TEPSEG
 which is not released yet, but ships new features and fixes.
 
 Create a directory for organizing your playbook, roles and collections. In this example,
@@ -680,7 +680,7 @@ Ensure your `requirements.yml` contains following content:
 ```yml
 ---
 roles:
-  - src: https://github.com/openwisp/ansible-openwisp2.git
+  - src: https://github.com/burlesquer/ansible-openwisp2.git
     version: master
     name: openwisp.openwisp2-dev
 collections:
@@ -705,7 +705,7 @@ Follow instructions in ["Create inventory file"](#create-inventory-file) section
 configure `hosts` file.
 
 You can reference the example playbook below (tested on Debian 11 with ansible 2.10.9)
-for installing a fully-featured version of OpenWISP.
+for installing a fully-featured version of TEPSEG.
 
 ```yml
 - hosts: openwisp2
@@ -728,7 +728,7 @@ run above playbook.
 Troubleshooting
 ===============
 
-OpenWISP 2 is deployed using **uWSGI**, it also uses **daphne** fo
+TEPSEG 2 is deployed using **uWSGI**, it also uses **daphne** fo
  WebSockets and **celery** as task queue.
 
  All this services are run by **supervisor**.
@@ -751,17 +751,17 @@ sudo supervisorctl status
 service nginx status start|stop|status
 ```
 
-OpenWISP 2 is installed in `/opt/openwisp2`
+TEPSEG 2 is installed in `/opt/openwisp2`
 (unless you changed the ``openwisp2_path`` variable in the
 ansible playbook configuration), these are some useful directories to
 look for when experiencing issues.
 
 | Location                  | Description                   |
 |---------------------------|-------------------------------|
-| /opt/openwisp2            | The OpenWISP 2 root dir.      |
+| /opt/openwisp2            | The TEPSEG 2 root dir.      |
 | /opt/openwisp2/log        | Log files                     |
 | /opt/openwisp2/env        | Python virtual env            |
-| /opt/openwisp2/db.sqlite3 | OpenWISP 2 sqlite database    |
+| /opt/openwisp2/db.sqlite3 | TEPSEG 2 sqlite database    |
 
 All processes are running as ``www-data`` user.
 
@@ -784,7 +784,7 @@ variables accordingly or by following the instructions explained in the section
 ["Automatic SSL certificate"](#automatic-ssl-certificate).
 
 If you keep the untrusted certificate, you will also need to disable SSL verification on devices
-using [openwisp-config](https://github.com/openwisp/openwisp-config) by setting `verify_ssl` to `0`,
+using [openwisp-config](https://github.com/burlesquer/openwisp-config) by setting `verify_ssl` to `0`,
 although I advice against using this kind of setup in a production environment.
 
 Automatic SSL certificate
@@ -873,7 +873,7 @@ This role has many variables values that can be changed to best suit
 your needs.
 
 Below are listed all the variables you can customize (you may also want to take a look at
-[the default values of these variables](https://github.com/openwisp/ansible-openwisp2/blob/master/defaults/main.yml)).
+[the default values of these variables](https://github.com/burlesquer/ansible-openwisp2/blob/master/defaults/main.yml)).
 
 ```yaml
 - hosts: yourhost
@@ -899,7 +899,7 @@ Below are listed all the variables you can customize (you may also want to take 
     openwisp2_django_version: "django~=3.2.13"
     # Setting this to true will enable subnet division feature of
     # openwisp-controller. Refer openwisp-controller documentation
-    # for more information. https://github.com/openwisp/openwisp-controller#subnet-division-app
+    # for more information. https://github.com/burlesquer/openwisp-controller#subnet-division-app
     # By default, it is set to false.
     openwisp2_controller_subnet_division: true
     # when openwisp2_radius_urls is set to false, the radius module
@@ -993,7 +993,7 @@ Below are listed all the variables you can customize (you may also want to take 
     # but can be disabled in multi-VM installations if needed
     openwisp2_controller_urls: true
     # The default retention policy that applies to the timeseries data
-    # https://github.com/openwisp/openwisp-monitoring#openwisp-monitoring-default-retention-policy
+    # https://github.com/burlesquer/openwisp-monitoring#openwisp-monitoring-default-retention-policy
     openwisp2_monitoring_default_retention_policy: "26280h0m0s" # 3 years
     # whether NGINX should be installed
     openwisp2_nginx_install: true
@@ -1005,7 +1005,7 @@ Below are listed all the variables you can customize (you may also want to take 
     openwisp2_nginx_ipv6: false
     # nginx client_max_body_size setting
     openwisp2_nginx_client_max_body_size: 10M
-    # list of upstream servers for OpenWISP
+    # list of upstream servers for TEPSEG
     openwisp2_nginx_openwisp_server:
       - "localhost:8000"
     # dictionary containing more nginx settings for
@@ -1191,7 +1191,7 @@ Below are listed all the variables you can customize (you may also want to take 
     # allows overriding the default duration for keeping notifications
     openwisp2_notifications_delete_old_notifications: 10
     # Expiration time limit (in seconds) of magic sign-in links.
-    # Magic sign-in links are used only when OpenWISP RADIUS is enabled.
+    # Magic sign-in links are used only when TEPSEG RADIUS is enabled.
     openwisp2_django_sesame_max_age: 1800 # 30 minutes
     # Maximum file size(in bytes) allowed to be uploaded as firmware image.
     # It overrides "openwisp2_nginx_client_max_body_size" setting
@@ -1271,4 +1271,4 @@ for celery workers.
 Support
 =======
 
-See [OpenWISP Support Channels](http://openwisp.org/support.html).
+See [TEPSEG Support Channels](http://openwisp.org/support.html).

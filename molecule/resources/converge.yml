@@ -25,4 +25,4 @@
         state: absent
 
   roles:
-    - role: openwisp.openwisp2
+    - role: burlesquer.openwisp2

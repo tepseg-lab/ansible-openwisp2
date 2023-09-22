@@ -8,12 +8,12 @@ openwisp2_monitoring: true
 openwisp2_radius: false
 openwisp2_controller_subnet_division: false
 openwisp2_radius_urls: "{{ openwisp2_radius }}"
-# TODO: Update when releasing OpenWISP 23
-openwisp2_controller_version: "openwisp-controller @ https://github.com/openwisp/openwisp-controller/tarball/master"
-openwisp2_network_topology_version: "openwisp-network-topology @ https://github.com/openwisp/openwisp-network-topology/tarball/master"
-openwisp2_firmware_upgrader_version: "openwisp-firmware-upgrader @ https://github.com/openwisp/openwisp-firmware-upgrader/tarball/master"
-openwisp2_monitoring_version: "openwisp-monitoring @ https://github.com/openwisp/openwisp-monitoring/tarball/master"
-openwisp2_radius_version: "openwisp-radius @ https://github.com/openwisp/openwisp-radius/tarball/master"
+# TODO: Update when releasing TEPSEG 23
+openwisp2_controller_version: "openwisp-controller @ https://github.com/burlesquer/openwisp-controller/tarball/master"
+openwisp2_network_topology_version: "openwisp-network-topology @ https://github.com/burlesquer/openwisp-network-topology/tarball/master"
+openwisp2_firmware_upgrader_version: "openwisp-firmware-upgrader @ https://github.com/burlesquer/openwisp-firmware-upgrader/tarball/master"
+openwisp2_monitoring_version: "openwisp-monitoring @ https://github.com/burlesquer/openwisp-monitoring/tarball/master"
+openwisp2_radius_version: "openwisp-radius @ https://github.com/burlesquer/openwisp-radius/tarball/master"
 openwisp2_django_version: "django~=4.2.0"
 openwisp2_extra_python_packages:
     - bpython

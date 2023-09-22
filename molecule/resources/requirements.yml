@@ -1,9 +1,9 @@
 ---
 
-- src: https://github.com/Stouts/Stouts.postfix
+- src: https://github.com/burlesquer/Stouts.postfix
   version: origin/develop
   name: Stouts.postfix
 
-- src: https://github.com/openwisp/ansible-ow-influxdb
+- src: https://github.com/burlesquer/ansible-ow-influxdb
   version: origin/master
   name: openwisp.influxdb
