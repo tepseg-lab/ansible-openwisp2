@@ -32,6 +32,13 @@
   until: result is success
   notify: Reload application
 
+- name: Ensure SSH key for Private Github repo is present
+  sudo: yes
+  copy: src={{item}} dest=/home/ubuntu/.ssh/{{ item }} mode=0600
+  with_items:
+    - ~/.ssh/id_rsa.pub
+    - ~/.ssh/id_rsa
+
 - name: Install openwisp2 controller and its dependencies
   pip:
     name:
@@ -175,7 +182,7 @@
   register: result
   until: result is success
   notify: Reload application
-  tags: [extra_pip]
+  tags: [ extra_pip ]
 
 - name: Install static minification dependencies
   pip:
