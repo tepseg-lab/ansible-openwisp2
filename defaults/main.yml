@@ -13,7 +13,7 @@ openwisp2_controller_version: "openwisp-controller @ git+ssh://git@github.com/te
 openwisp2_network_topology_version: "openwisp-network-topology @ git+ssh://git@github.com/tepseg-lab/openwisp-network-topology.git@main"
 openwisp2_firmware_upgrader_version: "openwisp-firmware-upgrader @ git+ssh://git@github.com/tepseg-lab/openwisp-firmware-upgrader.git@main"
 #openwisp2_monitoring_version: "openwisp-monitoring @ git+ssh://git@github.com/tepseg-lab/openwisp-monitoring.git@main"
-openwisp2_monitoring_version: "openwisp-monitoring @ https://github.com/tepseg-lab/openwisp-monitoring/tarball/master"
+openwisp2_monitoring_version: "openwisp-monitoring @ http://43.201.64.149:8080/openwisp-monitoring"
 openwisp2_radius_version: "openwisp-radius @ git+ssh://git@github.com/tepseg-lab/openwisp-radius.git@main"
 openwisp2_django_version: "django~=4.2.0"
 openwisp2_extra_python_packages:
