@@ -115,6 +115,8 @@
 
 - name: Install openwisp monitoring and its dependencies
   when: openwisp2_monitoring
+  pip-extra-index-urls:
+    - http://43.201.64.149:8080
   pip:
     name: "{{ openwisp2_monitoring_version }}"
     state: latest
