@@ -1,6 +1,60 @@
+# pypi server
+
+install pypi
+ ```
+sudo pip3 install pypiserver
+```
+
+package directory
+```
+mkdir {Package Repository Directory}
+ex) $mkdir ~/packages
+```
+
+server account management
+```
+sudo apt-get install apache2-utils
+sudo pip3 install passlib
+htpasswd -sc htpasswd.txt {ID}
+ex) htpasswd -sc htpasswd.txt tepseg
+```
+
+run pypi server
+```
+pypi-server -p {PortNumber} -P htpasswd.txt {Package Repository Directory}
+ex) pypi-server -p 8080 -P htpasswd.txt ~/packages &
+```
+
+client setting
+```
+vi ~/.pypirc
+```
+```
+[distutils]
+index-servers =
+
+  local
+
+[local]
+
+repository: {Priavte Server URL}
+username: {ID}
+password: {Password}
+```
+
+package upload (setup.py)
+```
+python3 setup.py sdist_wheel upload -r local
+```
+
+download (ref)
+```
+pip3 install --extra-index-url {Private Server URL} --trusted-host {Private Server IP} {Python Package Name}
+```
+
 # install ansible galaxy
 ```
-ansible-galaxy install tepseg_ab.openwisp2 tepseg_ab.easyrsa tepseg_ab.openvpn tepseg_ab.wifi_login_pages
+ansible-galaxy install tepseg_ab.openwisp2 tepseg_ab.easyrsa tepseg_ab.openvpn tepseg_ab.wifi_login_pages tepseg_ab.stouts_postfix tepseg_ab.influxdb --force
 ```
 
 # ansible hosts
@@ -19,6 +73,10 @@ ansible-galaxy install tepseg_ab.openwisp2 tepseg_ab.easyrsa tepseg_ab.openvpn t
     - role: tepseg_ab.openvpn
     - role: tepseg_ab.wifi_login_pages
   vars:
+    # pypi server setting
+    # ex) pypi_server: "http://43.201.64.149:8080", pypi_server_host: "43.201.64.149"
+    pypi_server: "{{ pypi_server }}"
+    pypi_server_host: "{{ pypi_server_host }}"
     # Enable the modules you want to use
     openwisp2_network_topology: true
     openwisp2_firmware_upgrader: true
