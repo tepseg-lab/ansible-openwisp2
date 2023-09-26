@@ -120,7 +120,7 @@
     state: latest
     virtualenv: "{{ virtualenv_path }}"
     virtualenv_python: "{{ openwisp2_python }}"
-    extra_args: --extra-index-url http://43.201.64.149:8080 --trusted-host 43.201.64.149
+    extra_args: "--extra-index-url http://43.201.64.149:8080 --trusted-host 43.201.64.149"
   environment:
     SETUPTOOLS_USE_DISTUTILS: stdlib
   notify: Reload application
