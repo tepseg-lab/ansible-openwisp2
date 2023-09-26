@@ -40,8 +40,8 @@
     state: latest
     virtualenv: "{{ virtualenv_path }}"
     virtualenv_python: "{{ openwisp2_python }}"
-    extra_args: "--extra-index-url {{ pypi_server }} --trusted-host {{ pypi_server_host }}"
   environment:
+    GIT_SSH_COMMAND: "ssh -i /root/.ssh/id_rsa"
     SETUPTOOLS_USE_DISTUTILS: stdlib
     LC_CTYPE: "en_US.UTF-8"
   notify: Reload application
@@ -88,6 +88,7 @@
     virtualenv: "{{ virtualenv_path }}"
     virtualenv_python: "{{ openwisp2_python }}"
   environment:
+    GIT_SSH_COMMAND: "ssh -i /root/.ssh/id_rsa"
     SETUPTOOLS_USE_DISTUTILS: stdlib
   notify: Reload application
   retries: 5
@@ -105,6 +106,7 @@
     virtualenv: "{{ virtualenv_path }}"
     virtualenv_python: "{{ openwisp2_python }}"
   environment:
+    GIT_SSH_COMMAND: "ssh -i /root/.ssh/id_rsa"
     SETUPTOOLS_USE_DISTUTILS: stdlib
   notify: Reload application
   retries: 5
@@ -121,8 +123,8 @@
     state: latest
     virtualenv: "{{ virtualenv_path }}"
     virtualenv_python: "{{ openwisp2_python }}"
-    extra_args: "--extra-index-url {{ pypi_server }} --trusted-host {{ pypi_server_host }}"
   environment:
+    GIT_SSH_COMMAND: "ssh -i /root/.ssh/id_rsa"
     SETUPTOOLS_USE_DISTUTILS: stdlib
   notify: Reload application
   retries: 5
@@ -140,6 +142,7 @@
     virtualenv: "{{ virtualenv_path }}"
     virtualenv_python: "{{ openwisp2_python }}"
   environment:
+    GIT_SSH_COMMAND: "ssh -i /root/.ssh/id_rsa"
     SETUPTOOLS_USE_DISTUTILS: stdlib
   notify: Reload application
   retries: 5
