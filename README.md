@@ -82,7 +82,7 @@ ansible-galaxy install tepseg_ab.openwisp2 tepseg_ab.easyrsa tepseg_ab.openvpn t
     # the location should be $HOME/.ansible/templates/github_ssh/id_rsa 
     # and $HOME/.ansible/templates/github_ssh/id_rsa
     tepseg_github_shared_ssh_private_key: "~/.ansible/templates/github_ssh/id_rsa"
-    tepseg_github_shared_ssh_public_key: "~/.ansible/templates/github_ssh/id_rsa"
+    tepseg_github_shared_ssh_public_key: "~/.ansible/templates/github_ssh/id_rsa.pub"
     # Enable the modules you want to use
     openwisp2_network_topology: true
     openwisp2_firmware_upgrader: true
