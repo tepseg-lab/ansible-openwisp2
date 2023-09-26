@@ -32,6 +32,13 @@
   until: result is success
   notify: Reload application
 
+- name: Add Github to known_hosts
+  known_hosts:
+    name: "github.com"
+    state: present
+    key: "{{ lookup('pipe', 'ssh-keyscan -t rsa github.com') }}"
+    hash_host: true
+
 - name: Install openwisp2 controller and its dependencies
   pip:
     name:
@@ -115,13 +122,6 @@
   until: result is success
   tags:
     - molecule-idempotence-notest
-
-- name: Add Github to known_hosts
-  known_hosts:
-    name: "github.com"
-    state: present
-    key: "{{ lookup('pipe', 'ssh-keyscan -t rsa github.com') }}"
-    hash_host: true
 
 - name: Install openwisp monitoring and its dependencies
   when: openwisp2_monitoring
