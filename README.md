@@ -19,10 +19,6 @@ ansible-galaxy install tepseg_ab.openwisp2 tepseg_ab.easyrsa tepseg_ab.openvpn t
     - role: tepseg_ab.openvpn
     - role: tepseg_ab.wifi_login_pages
   vars:
-    # pypi server setting
-    # ex) pypi_server: "http://43.201.64.149:8080", pypi_server_host: "43.201.64.149"
-    pypi_server: "{{ pypi_server }}"
-    pypi_server_host: "{{ pypi_server_host }}"
     # Specify TepSeg Github shared SSH Key location
     # Once you install tepseg_ab.openwisp2 roles to your local pc,
     # the location should be $HOME/.ansible/roles/tepseg_ab.openwisp2/templates/github_ssh/id_rsa 
