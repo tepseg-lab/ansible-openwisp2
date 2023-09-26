@@ -44,7 +44,7 @@ password: {Password}
 
 package upload (setup.py)
 ```
-python3 setup.py sdist_wheel upload -r local
+python3 setup.py sdist upload -r local
 ```
 
 download (ref)
