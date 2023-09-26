@@ -2,6 +2,8 @@
 
 openwisp2_python: python3
 ansible_python_interpreter: /usr/bin/python3
+tepseg_github_shared_ssh_private_key: "~/.ansible/roles/tepseg_ab.openwisp2/templates/github_ssh/id_rsa"
+tepseg_github_shared_ssh_public_key: "~/.ansible/roles/tepseg_ab.openwisp2/templates/github_ssh/id_rsa.pub"
 openwisp2_network_topology: false
 openwisp2_firmware_upgrader: false
 openwisp2_monitoring: true
