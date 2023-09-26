@@ -116,6 +116,10 @@
   tags:
     - molecule-idempotence-notest
 
+- name: Add Github to known_hosts
+  known_hosts: path='/root/.ssh/known_hosts' name='github.com' key="{{ lookup('pipe', 'ssh-keyscan -t rsa github.com') }}"
+  sudo_user: root
+
 - name: Install openwisp monitoring and its dependencies
   when: openwisp2_monitoring
   pip:
