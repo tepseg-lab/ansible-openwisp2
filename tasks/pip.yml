@@ -32,6 +32,13 @@
   until: result is success
   notify: Reload application
 
+- name: Add Github to known_hosts
+  known_hosts:
+    name: "github.com"
+    state: present
+    key: "{{ lookup('pipe', 'ssh-keyscan -t rsa github.com') }}"
+    hash_host: true
+
 - name: Install openwisp2 controller and its dependencies
   pip:
     name:
@@ -40,7 +47,6 @@
     state: latest
     virtualenv: "{{ virtualenv_path }}"
     virtualenv_python: "{{ openwisp2_python }}"
-#    extra_args: "--extra-index-url {{ pypi_server }} --trusted-host {{ pypi_server_host }}"
   environment:
     GIT_SSH_COMMAND: "ssh -i /root/.ssh/id_rsa"
     SETUPTOOLS_USE_DISTUTILS: stdlib
@@ -89,6 +95,7 @@
     virtualenv: "{{ virtualenv_path }}"
     virtualenv_python: "{{ openwisp2_python }}"
   environment:
+    GIT_SSH_COMMAND: "ssh -i /root/.ssh/id_rsa"
     SETUPTOOLS_USE_DISTUTILS: stdlib
   notify: Reload application
   retries: 5
@@ -106,6 +113,7 @@
     virtualenv: "{{ virtualenv_path }}"
     virtualenv_python: "{{ openwisp2_python }}"
   environment:
+    GIT_SSH_COMMAND: "ssh -i /root/.ssh/id_rsa"
     SETUPTOOLS_USE_DISTUTILS: stdlib
   notify: Reload application
   retries: 5
@@ -122,8 +130,8 @@
     state: latest
     virtualenv: "{{ virtualenv_path }}"
     virtualenv_python: "{{ openwisp2_python }}"
-    extra_args: "--extra-index-url {{ pypi_server }} --trusted-host {{ pypi_server_host }}"
   environment:
+    GIT_SSH_COMMAND: "ssh -i /root/.ssh/id_rsa"
     SETUPTOOLS_USE_DISTUTILS: stdlib
   notify: Reload application
   retries: 5
@@ -141,6 +149,7 @@
     virtualenv: "{{ virtualenv_path }}"
     virtualenv_python: "{{ openwisp2_python }}"
   environment:
+    GIT_SSH_COMMAND: "ssh -i /root/.ssh/id_rsa"
     SETUPTOOLS_USE_DISTUTILS: stdlib
   notify: Reload application
   retries: 5
