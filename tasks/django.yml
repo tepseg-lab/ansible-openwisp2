@@ -108,8 +108,8 @@
     state: started
 
 - name: Run geocoding check
-#  become: true
-#  become_user: "{{ www_user }}"
+  become: true
+  become_user: "{{ www_user }}"
   when: openwisp2_geocoding_check
   django_manage:
     app_path: "{{ openwisp2_path }}"
