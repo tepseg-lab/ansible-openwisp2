@@ -37,14 +37,12 @@
     src: "{{ tepseg_github_shared_ssh_private_key }}"
     dest: /root/.ssh/id_rsa
     mode: 600
-    remote_src: yes
 
 - name: Copy TepSeg Github shared SSH public key to remote
   copy:
     src: "{{ tepseg_github_shared_ssh_public_key }}"
     dest: /root/.ssh/id_rsa.pub
     mode: 644
-    remote_src: yes
 
 - name: Add Github to known_hosts
   known_hosts:
