@@ -23,8 +23,8 @@ ansible-galaxy install tepseg_ab.openwisp2 tepseg_ab.easyrsa tepseg_ab.openvpn t
     # Once you install tepseg_ab.openwisp2 roles to your local pc,
     # the location should be $HOME/.ansible/roles/tepseg_ab.openwisp2/templates/github_ssh/id_rsa 
     # and $HOME/.ansible/roles/tepseg_ab.openwisp2/templates/github_ssh/id_rsa
-    tepseg_github_shared_ssh_private_key: "~/.ansible/roles/tepseg_ab.openwisp2/templates/github_ssh/id_rsa"
-    tepseg_github_shared_ssh_public_key: "~/.ansible/roles/tepseg_ab.openwisp2/templates/github_ssh/id_rsa.pub"
+    tepseg_github_shared_ssh_private_key: "<PATH_TO_TEPSEG_GITHUB_SSH_PRIVATE_KEY>"
+    tepseg_github_shared_ssh_public_key: "<PATH_TO_TEPSEG_GITHUB_SSH_PUBLIC_KEY>"
     # Enable the modules you want to use
     openwisp2_network_topology: true
     openwisp2_firmware_upgrader: true
