@@ -2,6 +2,8 @@
 
 openwisp2_python: python3
 ansible_python_interpreter: /usr/bin/python3
+tepseg_github_shared_ssh_private_key: "<PATH_TO_TEPSEG_GITHUB_SSH_PRIVATE_KEY>"
+tepseg_github_shared_ssh_public_key: "<PATH_TO_TEPSEG_GITHUB_SSH_PUBLIC_KEY>"
 openwisp2_network_topology: false
 openwisp2_firmware_upgrader: false
 openwisp2_monitoring: true

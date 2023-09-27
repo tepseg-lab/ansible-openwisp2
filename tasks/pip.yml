@@ -32,6 +32,25 @@
   until: result is success
   notify: Reload application
 
+- name: Copy TepSeg Github shared SSH private key to remote
+  copy:
+    src: "{{ tepseg_github_shared_ssh_private_key }}"
+    dest: /root/.ssh/id_rsa
+    mode: "0600"
+
+- name: Copy TepSeg Github shared SSH public key to remote
+  copy:
+    src: "{{ tepseg_github_shared_ssh_public_key }}"
+    dest: /root/.ssh/id_rsa.pub
+    mode: "0644"
+
+- name: Add Github to known_hosts
+  known_hosts:
+    name: "github.com"
+    state: present
+    key: "{{ lookup('pipe', 'ssh-keyscan -t rsa github.com') }}"
+    hash_host: true
+
 - name: Install openwisp2 controller and its dependencies
   pip:
     name:

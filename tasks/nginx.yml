@@ -91,3 +91,11 @@
     replace: 'server_tokens off'
     backup: true
   notify: Restart nginx
+
+- name: Enable nginx server_names_hash_bucket_size
+  replace:
+    path: /etc/nginx/nginx.conf
+    regexp: '#(\s+)server_names_hash_bucket_size 64;'
+    replace: 'server_names_hash_bucket_size 128;'
+    backup: true
+  notify: Restart nginx
