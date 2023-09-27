@@ -34,17 +34,6 @@ ansible-galaxy install tepseg_ab.openwisp2 tepseg_ab.easyrsa tepseg_ab.openvpn t
     # set to false when you don't want to register openwisp-radius
     # API endpoints.
     openwisp2_radius_urls: true
-    # you may replace the values of these variables with any value or URL
-    # supported by pip (the python package installer)
-    # use these to install forks, branches or development versions
-    # WARNING: only do this if you know what you are doing; disruption
-    # of service is very likely to occur if these variables are changed
-    # without careful analysis and testing
-    openwisp2_controller_version: "openwisp-controller~=1.0.0"
-    openwisp2_network_topology_version: "openwisp-network-topology~=1.0.0"
-    openwisp2_firmware_upgrader_version: "openwisp-firmware-upgrader~=1.0.0"
-    openwisp2_radius_version: "openwisp-radius~=1.0.0"
-    openwisp2_django_version: "django~=3.2.13"
 
     # EasyRSA
     easyrsa_generate_dh: true
