@@ -1,4 +1,37 @@
-# install ansible galaxy
+# install ansible galaxy (Using requirements.yml file) / ansible galaxy NG
+### requirement.yml
+```yml
+- name: ansible-openwisp2
+  src: https://github.com/tepseg-lab/ansible-openwisp2
+  version: main
+  
+- name: ansible-openwisp-wifi-login-pages
+  src: https://github.com/tepseg-lab/ansible-openwisp-wifi-login-pages
+  version: main
+  
+- name: ansible-ow-influxdb
+  src: https://github.com/tepseg-lab/ansible-ow-influxdb
+  version: main
+  
+- name: ansible-openwisp
+  src: https://github.com/tepseg-lab/ansible-role-easyrsa
+  version: main
+  
+- name: Stouts.openvpn
+  src: https://github.com/tepseg-lab/Stouts.openvpn
+  version: main
+  
+- name: Stouts.postfix
+  src: https://github.com/tepseg-lab/Stouts.postfix
+  version: main
+```
+
+### install role
+```
+ansible-galaxy role install -r requirements.yml --force
+```
+
+# ~~install ansible galaxy (ansible galaxy)~~ 
 ```
 ansible-galaxy install tepseg_ab.openwisp2 tepseg_ab.easyrsa tepseg_ab.openvpn tepseg_ab.wifi_login_pages tepseg_ab.stouts_postfix tepseg_ab.influxdb --force
 ```
