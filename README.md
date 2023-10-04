@@ -9,10 +9,6 @@
   src: https://github.com/tepseg-lab/ansible-openwisp-wifi-login-pages
   version: main
   
-- name: tepseg-ansible-ow-influxdb
-  src: https://github.com/tepseg-lab/ansible-ow-influxdb
-  version: main
-  
 - name: tepseg-ansible-easyrsa
   src: https://github.com/tepseg-lab/ansible-role-easyrsa
   version: main
@@ -50,7 +46,6 @@ ansible-galaxy install tepseg_ab.openwisp2 tepseg_ab.easyrsa tepseg_ab.openvpn t
   roles:
     - role: tepseg-ansible-openwisp2
     - role: tepseg-ansible-openwisp-wifi-login-pages
-    - role: tepseg-ansible-ow-influxdb
     - role: tepseg-ansible-easyrsa
     - role: tepseg-ansible-openvpn
     - role: tepseg-ansible-postfix
