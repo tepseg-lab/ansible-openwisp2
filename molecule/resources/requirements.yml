@@ -1,7 +1,7 @@
 ---
 
 - src: https://github.com/tepseg-lab/Stouts.postfix
-  version: origin/develop
+  version: origin/main
   name: Stouts.postfix
 
 - src: https://github.com/tepseg-lab/ansible-ow-influxdb
