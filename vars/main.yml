@@ -2,8 +2,8 @@
 
 virtualenv_path: "{{ openwisp2_path }}/env"
 supervisor_path: "/etc/supervisor/conf.d/%s.conf"
-www_group: "www-data"
-www_user: "www-data"
+www_group: "root"
+www_user: "root"
 openwisp2_default_supervisor_restart:
   - name: celery
     when: true

@@ -846,13 +846,13 @@ look for when experiencing issues.
 | /opt/openwisp2/env        | Python virtual env            |
 | /opt/openwisp2/db.sqlite3 | TEPSEG 2 sqlite database    |
 
-All processes are running as ``www-data`` user.
+All processes are running as ``root`` user.
 
-If you need to copy or edit files, you can switch to ``www-data``
+If you need to copy or edit files, you can switch to ``root``
 user with the commands
 
 ```
-sudo su www-data -s /bin/bash
+sudo su root -s /bin/bash
 cd /opt/openwisp2
 source env/bin/activate
 ```

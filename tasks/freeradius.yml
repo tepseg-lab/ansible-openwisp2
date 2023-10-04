@@ -146,11 +146,11 @@
     state: present
   notify: Restart freeradius
 
-- name: Adding user 'freerad' to www-data group for database access
+- name: Adding user 'freerad' to root group for database access
   when: freeradius_sql.dialect == "sqlite"
   user:
     name: freerad
-    groups: www-data
+    groups: root
     append: true
 
 - name: Add Attributes to freeradius dictionary
