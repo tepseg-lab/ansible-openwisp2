@@ -1,27 +1,27 @@
 # install ansible galaxy (Using requirements.yml file)
 ### requirements.yml
 ```yml
-- name: ansible-openwisp2
+- name: tepseg-ansible-openwisp2
   src: https://github.com/tepseg-lab/ansible-openwisp2
   version: main
   
-- name: ansible-openwisp-wifi-login-pages
+- name: tepseg-ansible-openwisp-wifi-login-pages
   src: https://github.com/tepseg-lab/ansible-openwisp-wifi-login-pages
   version: main
   
-- name: ansible-ow-influxdb
+- name: tepseg-ansible-ow-influxdb
   src: https://github.com/tepseg-lab/ansible-ow-influxdb
   version: main
   
-- name: ansible-openwisp
+- name: tepseg-ansible-easyrsa
   src: https://github.com/tepseg-lab/ansible-role-easyrsa
   version: main
   
-- name: Stouts.openvpn
+- name: tepseg-ansible-openvpn
   src: https://github.com/tepseg-lab/Stouts.openvpn
   version: main
   
-- name: Stouts.postfix
+- name: tepseg-ansible-postfix
   src: https://github.com/tepseg-lab/Stouts.postfix
   version: main
 ```
@@ -48,10 +48,12 @@ ansible-galaxy install tepseg_ab.openwisp2 tepseg_ab.easyrsa tepseg_ab.openvpn t
 - hosts: tepseg
   become: "{{ become | default('yes') }}"
   roles:
-    - role: tepseg_ab.openwisp2
-    - role: tepseg_ab.easyrsa
-    - role: tepseg_ab.openvpn
-    - role: tepseg_ab.wifi_login_pages
+    - role: tepseg-ansible-openwisp2
+    - role: tepseg-ansible-openwisp-wifi-login-pages
+    - role: tepseg-ansible-ow-influxdb
+    - role: tepseg-ansible-easyrsa
+    - role: tepseg-ansible-openvpn
+    - role: tepseg-ansible-postfix
   vars:
     # Specify TepSeg Github shared SSH Key location
     # Once you install tepseg_ab.openwisp2 roles to your local pc,
