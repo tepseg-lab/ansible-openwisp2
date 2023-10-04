@@ -5,5 +5,5 @@
   name: Stouts.postfix
 
 - src: https://github.com/tepseg-lab/ansible-ow-influxdb
-  version: origin/master
+  version: origin/main
   name: openwisp.influxdb
