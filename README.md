@@ -1,4 +1,4 @@
-# install ansible galaxy (Using requirements.yml file) / ansible galaxy NG
+# install ansible galaxy (Using requirements.yml file)
 ### requirement.yml
 ```yml
 - name: ansible-openwisp2
