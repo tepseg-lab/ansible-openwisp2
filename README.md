@@ -1,5 +1,5 @@
 # install ansible galaxy (Using requirements.yml file)
-### requirement.yml
+### requirements.yml
 ```yml
 - name: ansible-openwisp2
   src: https://github.com/tepseg-lab/ansible-openwisp2
