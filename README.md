@@ -83,8 +83,9 @@ ansible-galaxy install tepseg_ab.openwisp2 tepseg_ab.easyrsa tepseg_ab.openvpn t
     #Wifi Login Page
     wifi_login_pages_domains: ["wifi-login-page url"]
 
-    #Postfix
-    postfix_myhostname: "localhost"
+    # Postfix
+    # When using AWS, uncomment
+    # postfix_myhostname: "localhost"
 ```
 
 =================
