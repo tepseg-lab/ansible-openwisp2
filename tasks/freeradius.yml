@@ -125,8 +125,8 @@
     src: freeradius/sql.j2
     dest: "{{ freeradius_mods_available_dir }}/sql"
     mode: 0640
-    owner: root
-    group: root
+    owner: freerad
+    group: freerad
   notify: Restart freeradius
 
 - name: Enable SQL module
@@ -135,8 +135,8 @@
     dest: "{{ freeradius_mods_enabled_dir }}/sql"
     state: link
     mode: 0640
-    owner: root
-    group: root
+    owner: freerad
+    group: freerad
 
 - name: Add plus sign to safe characters
   lineinfile:
@@ -146,11 +146,11 @@
     state: present
   notify: Restart freeradius
 
-- name: Adding user 'root' to root group for database access
+- name: Adding user 'freerad' to www-data group for database access
   when: freeradius_sql.dialect == "sqlite"
   user:
-    name: root
-    groups: root
+    name: freerad
+    groups: www-data
     append: true
 
 - name: Add Attributes to freeradius dictionary
@@ -163,8 +163,8 @@
     src: freeradius/rest.j2
     dest: "{{ freeradius_mods_available_dir }}/rest"
     mode: 0640
-    owner: root
-    group: root
+    owner: freerad
+    group: freerad
   notify: Restart freeradius
 
 - name: Enable REST module
@@ -173,8 +173,8 @@
     dest: "{{ freeradius_mods_enabled_dir }}/rest"
     state: link
     mode: 0640
-    owner: root
-    group: root
+    owner: freerad
+    group: freerad
 
 - name: Remove default site
   file:
@@ -188,8 +188,8 @@
     src: "{{ freeradius_openwisp_site_template_src }}"
     dest: "{{ freeradius_sites_enabled_dir }}/openwisp_site"
     mode: 0640
-    owner: root
-    group: root
+    owner: freerad
+    group: freerad
   notify: Restart freeradius
 
 - name: Inner tunnel
@@ -197,6 +197,6 @@
     src: freeradius/inner_tunnel.j2
     dest: "{{ freeradius_sites_enabled_dir }}/inner-tunnel"
     mode: 0640
-    owner: root
-    group: root
+    owner: freerad
+    group: freerad
   notify: Restart freeradius
