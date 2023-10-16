@@ -70,19 +70,22 @@ ansible-galaxy install tepseg_ab.openwisp2 tepseg_ab.easyrsa tepseg_ab.openvpn t
     easyrsa_generate_dh: true
     easyrsa_servers:
       - name: server
-    easyrsa_clients: []
+    easyrsa_clients:
+      - name: client
     easyrsa_pki_dir: /etc/easyrsa/pki
 
     # OpenVPN
     openvpn_keydir: "{{ easyrsa_pki_dir }}"
-    openvpn_clients: []
+    openvpn_unified_client_profiles: false
+    openvpn_download_clients: true
     openvpn_use_pam: false
 
     #Wifi Login Page
     wifi_login_pages_domains: ["wifi-login-page url"]
 
-    #Postfix
-    postfix_myhostname: "localhost"
+    # Postfix
+    # When using AWS, uncomment
+    # postfix_myhostname: "localhost"
 ```
 
 =================
