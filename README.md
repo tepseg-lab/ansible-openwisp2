@@ -1,3 +1,11 @@
+# 필수 설정 및 설치 패키지 (physical 서버)
+
+1. GIT
+
+2. SSH (ansible 서버에 known_host 등록 및 ansible->physical ssh root 접속 확인 / root login 권한 부여)
+
+3. hostname 등록 (ex. tepseg)
+
 # install ansible galaxy (Using requirements.yml file)
 ### requirements.yml
 ```yml
@@ -85,10 +93,20 @@ ansible-galaxy install tepseg_ab.openwisp2 tepseg_ab.easyrsa tepseg_ab.openvpn t
 
     # Postfix
     # When using AWS, uncomment
-    # postfix_myhostname: "localhost"
+    # postfix_myhostname: "tepseg"
 ```
 
 =================
+
+# RUN playbook
+
+```
+[Physical Server]
+ansible-playbook -i hosts playbook.yml -u <user> -k --become -K
+
+[AWS EC2]
+ansible-playbook -i hosts playbook.yml -u ubuntu --private-key=<key path> --become --become-user=root
+```
 
 [![Installing OpenWISP2](https://raw.githubusercontent.com/openwisp/ansible-openwisp2/master/docs/install-openwisp2.png)](https://www.youtube.com/watch?v=v_DUeFUGG8Q&index=1&list=PLPueLZei9c8_DEYgC5StOcR5bCAcQVfR8)
 
