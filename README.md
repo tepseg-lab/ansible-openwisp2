@@ -108,6 +108,42 @@ ansible-playbook -i hosts playbook.yml -u <user> -k --become -K
 ansible-playbook -i hosts playbook.yml -u ubuntu --private-key=<key path> --become --become-user=root
 ```
 
+# Docker Compose
+
+### command
+```
+docker build
+docker-compose -f <docker compose yml file name> up
+```
+
+### git clone error trouble shooting
+
+1. ADD git repo private key to your project
+2. update your Dockerfile
+``` dockerfile
+.
+.
+.
+RUN apt update && \
+    apt install --yes zlib1g-dev libjpeg-dev gdal-bin libproj-dev \
+    libgeos-dev libspatialite-dev libsqlite3-mod-spatialite \
+    sqlite3 libsqlite3-dev openssl libssl-dev \
+    git ssh && \
+    rm -rf /var/lib/apt/lists/* /root/.cache/pip/* /tmp/*
+
+RUN mkdir -p -m 0600 /root/.ssh /root/.ssh && \
+        ssh-keyscan github.com >> /root/.ssh/known_hosts
+
+ADD id_rsa /root/.ssh/id_rsa
+
+RUN chmod -R 400 /root/.ssh/id_rsa
+.
+.
+.
+``` 
+
+=================
+
 [![Installing OpenWISP2](https://raw.githubusercontent.com/openwisp/ansible-openwisp2/master/docs/install-openwisp2.png)](https://www.youtube.com/watch?v=v_DUeFUGG8Q&index=1&list=PLPueLZei9c8_DEYgC5StOcR5bCAcQVfR8)
 
 [![Build Status](https://github.com/tepseg-lab/ansible-openwisp2/workflows/Ansible%20OpenWISP2%20CI%20Build/badge.svg?branch=master)](https://github.com/tepseg-lab/ansible-openwisp2/actions?query=workflow%3A%22Ansible+OpenWISP2+CI+Build%22)
