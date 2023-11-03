@@ -120,10 +120,8 @@ docker-compose -f <docker compose yml file name> up
 
 1. ADD git repo private key to your project
 2. update your Dockerfile
+
 ``` dockerfile
-.
-.
-.
 RUN apt update && \
     apt install --yes zlib1g-dev libjpeg-dev gdal-bin libproj-dev \
     libgeos-dev libspatialite-dev libsqlite3-mod-spatialite \
@@ -137,9 +135,6 @@ RUN mkdir -p -m 0600 /root/.ssh /root/.ssh && \
 ADD id_rsa /root/.ssh/id_rsa
 
 RUN chmod -R 400 /root/.ssh/id_rsa
-.
-.
-.
 ``` 
 
 =================
