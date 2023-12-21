@@ -1,5 +1,5 @@
-# Ansible Version
-ansible==8.0.0 이 ansible core [2.15.3] 을 지원했었는데 변경된 것으로 추정됨
+# Align Ansible Version
+ansible==8.0.0 이 ansible core [2.15.3] 을 지원했었는데 변경된 것으로 추정됨,
 아래의 명령어로 core 버전을 수정한 뒤 role 설정
 ```
 pip install -I ansible-core==2.15.3
