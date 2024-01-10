@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'openwisp_monitoring.monitoring',
     'openwisp_monitoring.device',
     'openwisp_monitoring.check',
+    'openwisp_monitorign.wifi',
     'nested_admin',
 {% endif %}
     'openwisp_notifications',
