@@ -12,8 +12,8 @@ openwisp2_controller_subnet_division: false
 openwisp2_radius_urls: "{{ openwisp2_radius }}"
 # TODO: Update when releasing TEPSEG 23
 openwisp2_controller_version: "openwisp-controller @ git+ssh://git@github.com/tepseg-lab/openwisp-controller.git@main"
-openwisp2_network_topology_version: "openwisp-network-topology @ git+ssh://git@github.com/tepseg-lab/openwisp-network-topology.git@main"
-openwisp2_firmware_upgrader_version: "openwisp-firmware-upgrader @ git+ssh://git@github.com/tepseg-lab/openwisp-firmware-upgrader.git@main"
+#openwisp2_network_topology_version: "openwisp-network-topology @ git+ssh://git@github.com/tepseg-lab/openwisp-network-topology.git@main"
+#openwisp2_firmware_upgrader_version: "openwisp-firmware-upgrader @ git+ssh://git@github.com/tepseg-lab/openwisp-firmware-upgrader.git@main"
 openwisp2_monitoring_version: "openwisp-monitoring @ git+ssh://git@github.com/tepseg-lab/openwisp-monitoring.git@main"
 #openwisp2_monitoring_version: "openwisp-monitoring"
 openwisp2_radius_version: "openwisp-radius @ git+ssh://git@github.com/tepseg-lab/openwisp-radius.git@main"

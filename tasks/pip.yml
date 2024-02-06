@@ -99,41 +99,41 @@
   register: result
   until: result is success
 
-- name: Install openwisp2 network topology and its dependencies
-  when: openwisp2_network_topology
-  pip:
-    name: "{{ openwisp2_network_topology_version }}"
-    state: latest
-    virtualenv: "{{ virtualenv_path }}"
-    virtualenv_python: "{{ openwisp2_python }}"
-  environment:
-    GIT_SSH_COMMAND: "ssh -i /root/.ssh/id_rsa"
-    SETUPTOOLS_USE_DISTUTILS: stdlib
-  notify: Reload application
-  retries: 5
-  delay: 10
-  register: result
-  until: result is success
-  tags:
-    - molecule-idempotence-notest
+#- name: Install openwisp2 network topology and its dependencies
+#  when: openwisp2_network_topology
+#  pip:
+#    name: "{{ openwisp2_network_topology_version }}"
+#    state: latest
+#    virtualenv: "{{ virtualenv_path }}"
+#    virtualenv_python: "{{ openwisp2_python }}"
+#  environment:
+#    GIT_SSH_COMMAND: "ssh -i /root/.ssh/id_rsa"
+#    SETUPTOOLS_USE_DISTUTILS: stdlib
+#  notify: Reload application
+#  retries: 5
+#  delay: 10
+#  register: result
+#  until: result is success
+#  tags:
+#    - molecule-idempotence-notest
 
-- name: Install openwisp firmware upgrader and its dependencies
-  when: openwisp2_firmware_upgrader
-  pip:
-    name: "{{ openwisp2_firmware_upgrader_version }}"
-    state: latest
-    virtualenv: "{{ virtualenv_path }}"
-    virtualenv_python: "{{ openwisp2_python }}"
-  environment:
-    GIT_SSH_COMMAND: "ssh -i /root/.ssh/id_rsa"
-    SETUPTOOLS_USE_DISTUTILS: stdlib
-  notify: Reload application
-  retries: 5
-  delay: 10
-  register: result
-  until: result is success
-  tags:
-    - molecule-idempotence-notest
+#- name: Install openwisp firmware upgrader and its dependencies
+#  when: openwisp2_firmware_upgrader
+#  pip:
+#    name: "{{ openwisp2_firmware_upgrader_version }}"
+#    state: latest
+#    virtualenv: "{{ virtualenv_path }}"
+#    virtualenv_python: "{{ openwisp2_python }}"
+#  environment:
+#    GIT_SSH_COMMAND: "ssh -i /root/.ssh/id_rsa"
+#    SETUPTOOLS_USE_DISTUTILS: stdlib
+#  notify: Reload application
+#  retries: 5
+#  delay: 10
+#  register: result
+#  until: result is success
+#  tags:
+#    - molecule-idempotence-notest
 
 - name: Install openwisp monitoring and its dependencies
   when: openwisp2_monitoring
