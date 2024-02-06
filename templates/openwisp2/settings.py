@@ -64,7 +64,7 @@ INSTALLED_APPS = [
 {% if openwisp2_firmware_upgrader %}
     'openwisp_firmware_upgrader',
 {% endif %}
-    'openwisp_ipam',
+    #'openwisp_ipam',
 {% if openwisp2_radius %}
     'dj_rest_auth',
     'dj_rest_auth.registration',
