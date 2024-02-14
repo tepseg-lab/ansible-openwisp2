@@ -35,37 +35,6 @@
   register: result
   until: result is success
 
-- name: Install PostgreSQL server
-  apt:
-    name: postgresql
-    state: present
-
-- name: Install PostGIS extension
-  apt:
-    name: postgis
-    state: present
-
-- name: Create PostgreSQL database
-  postgresql_db:
-    name: openwisp
-    encoding: UTF8
-    lc_collate: en_US.UTF-8
-    lc_ctype: en_US.UTF-8
-    template: template0
-
-- name: Create PostgreSQL user
-  postgresql_user:
-    db: openwisp
-    name: openwisp
-    password: openwisp
-    priv: "openwisp.*:ALL"
-    state: present
-
-- name: Install nginx
-  apt:
-    name: nginx
-  when: openwisp2_nginx_install
-
 - name: Install redis
   apt:
     name: redis-server
@@ -194,3 +163,47 @@
   delay: 10
   register: result
   until: result is success
+
+- name: Install psycopg2 library
+  apt:
+    name: python3-psycopg2
+    state: present
+  become: true
+
+- name: Install PostgreSQL server
+  apt:
+    name:
+      - postgresql
+    state: present
+  become: true
+
+- name: Create PostgreSQL database
+  postgresql_db:
+    name: openwisp
+    encoding: UTF8
+    lc_collate: en_US.UTF-8
+    lc_ctype: en_US.UTF-8
+    template: template0
+  become: true
+
+- name: Create PostgreSQL user
+  postgresql_user:
+    db: openwisp
+    name: openwisp
+    password: openwisp
+    priv: "openwisp.*:ALL"
+    state: present
+  become: true
+
+- name: Install PostGIS extension
+  apt:
+    name:
+      - postgis
+    state: present
+  become: true
+
+- name: Grant superuser privileges to PostgreSQL user
+  postgresql_user:
+    name: openwisp
+    role_attr_flags: SUPERUSER
+  become: true
