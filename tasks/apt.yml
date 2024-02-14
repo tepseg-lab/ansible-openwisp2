@@ -177,6 +177,27 @@
     state: present
   become: true
 
+- name: Restart PostgreSQL service
+  service:
+    name: postgresql
+    state: restarted
+  become: true
+
+- name: Modify PostgreSQL authentication rules in pg_hba.conf
+  lineinfile:
+    path: /etc/postgresql/14/main/pg_hba.conf
+    regexp: '^local\s+all\s+postgres\s+peer$'
+    line: 'local   all             postgres                                trust'
+  become: true
+  notify: Restart PostgreSQL service
+
+- name: Restart PostgreSQL service if configuration changes
+  service:
+    name: postgresql
+    state: restarted
+  become: true
+  when: lineinfile.changed
+
 - name: Create PostgreSQL database
   postgresql_db:
     name: openwisp
@@ -186,12 +207,21 @@
     template: template0
   become: true
 
+- name: Grant privileges on public schema to openwisp user
+  postgresql_privs:
+    database: openwisp
+    state: present
+    privs: ALL
+    type: schema
+    objs: public
+    roles: openwisp
+  become: true
+
 - name: Create PostgreSQL user
   postgresql_user:
     db: openwisp
     name: openwisp
     password: openwisp
-    priv: "openwisp.*:ALL"
     state: present
   become: true
 
@@ -200,10 +230,4 @@
     name:
       - postgis
     state: present
-  become: true
-
-- name: Grant superuser privileges to PostgreSQL user
-  postgresql_user:
-    name: openwisp
-    role_attr_flags: SUPERUSER
   become: true
