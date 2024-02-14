@@ -37,7 +37,7 @@ openwisp2_database:
     name: "openwisp"
     user: "openwisp"
     password: "openwisp"
-    host: ""
+    host: "localhost"
     port: "5432"
     options: {}
 openwisp2_spatialite_path: "mod_spatialite.so"
