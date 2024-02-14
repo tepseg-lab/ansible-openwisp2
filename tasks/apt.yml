@@ -170,10 +170,15 @@
     state: present
   become: true
 
-- name: Install PostgreSQL server
+- name: Install psycopg2 library
   apt:
-    name:
-      - postgresql
+    name: python3-psycopg2
+    state: present
+  become: true
+
+- name: Install PostgreSQL server (version 14)
+  apt:
+    name: postgresql-14
     state: present
   become: true
 
@@ -189,14 +194,14 @@
     regexp: '^local\s+all\s+postgres\s+peer$'
     line: 'local   all             postgres                                trust'
   become: true
-  notify: Restart PostgreSQL service
+  register: pg_hba_modified
 
 - name: Restart PostgreSQL service if configuration changes
   service:
     name: postgresql
     state: restarted
   become: true
-  when: lineinfile.changed
+  when: pg_hba_modified.changed
 
 - name: Create PostgreSQL database
   postgresql_db:
@@ -207,6 +212,14 @@
     template: template0
   become: true
 
+- name: Create PostgreSQL user
+  postgresql_user:
+    db: openwisp
+    name: openwisp
+    password: openwisp
+    state: present
+  become: true
+
 - name: Grant privileges on public schema to openwisp user
   postgresql_privs:
     database: openwisp
@@ -215,14 +228,6 @@
     type: schema
     objs: public
     roles: openwisp
-  become: true
-
-- name: Create PostgreSQL user
-  postgresql_user:
-    db: openwisp
-    name: openwisp
-    password: openwisp
-    state: present
   become: true
 
 - name: Install PostGIS extension
