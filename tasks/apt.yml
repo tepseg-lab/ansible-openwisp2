@@ -35,6 +35,38 @@
   register: result
   until: result is success
 
+- name: Install PostgreSQL server
+  apt:
+    name: postgresql
+    state: present
+  tags:
+    - postgresql
+
+- name: Install PostGIS extension
+  apt:
+    name: postgis
+    state: present
+  tags:
+    - postgis
+
+- name: Create PostgreSQL database and user for PostGIS
+  become_user: postgres
+  postgresql_db:
+    name: openwisp
+    encoding: UTF8
+    lc_collate: en_US.UTF-8
+    lc_ctype: en_US.UTF-8
+    template: template0
+
+- name: Create PostgreSQL user for PostGIS
+  become_user: postgres
+  postgresql_user:
+    db: openwisp
+    name: openwisp
+    password: openwisp
+    priv: openwisp.*:ALL
+    state: present
+
 - name: Install nginx
   apt:
     name: nginx
