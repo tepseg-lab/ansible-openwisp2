@@ -74,8 +74,3 @@
   service:
     name: freeradius
     state: started
-
-- name: Restart PostgreSQL service
-  service:
-    name: postgresql
-    state: restarted
