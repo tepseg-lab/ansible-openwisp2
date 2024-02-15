@@ -35,6 +35,11 @@
   register: result
   until: result is success
 
+- name: Install nginx
+  apt:
+    name: nginx
+  when: openwisp2_nginx_install
+
 - name: Install redis
   apt:
     name: redis-server
