@@ -42,7 +42,7 @@ openwisp2_database:
     options: {}
 openwisp2_spatialite_path: "mod_spatialite.so"
 openwisp2_language_code: "en-gb"
-openwisp2_time_zone: "UTC"
+openwisp2_time_zone: "Asia/Seoul"
 openwisp2_context: {}
 openwisp2_allowed_hosts: []
 openwisp2_leaflet_config: {}
