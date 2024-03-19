@@ -33,13 +33,12 @@ openwisp2_default_from_email: "openwisp2@{{ inventory_hostname }}"
 openwisp2_email_backend: "djcelery_email.backends.CeleryEmailBackend"
 openwisp2_email_timeout: 10
 openwisp2_database:
-    engine: "openwisp_utils.db.backends.spatialite"
-    name: "{{ openwisp2_path }}/db.sqlite3"
-    user: ""
-    password: ""
-    host: ""
-    port: ""
-    options: {}
+    engine: django.contrib.gis.db.backends.postgis
+    name: "{{ DB_NAME }}"
+    user: "{{ DB_USER }}"
+    host: "{{ DB_HOST }}"
+    password: "{{ DB_PASSWORD }}"
+    port: 5432
 openwisp2_spatialite_path: "mod_spatialite.so"
 openwisp2_language_code: "en-gb"
 openwisp2_time_zone: "Asia/Seoul"
