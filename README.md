@@ -54,13 +54,19 @@ ansible-galaxy install tepseg_ab.openwisp2 tepseg_ab.easyrsa tepseg_ab.openvpn t
 {{ destination ip / domain }}
 ```
 
+# ansible ansible.cfg
+```yaml
+[defaults]
+allow_world_readable_tmpfiles=true
+```
+
 # playbook.yml
 ```yaml
 - hosts: tepseg
   become: "{{ become | default('yes') }}"
   roles:
     - role: tepseg-ansible-openwisp2
-    - role: tepseg-ansible-openwisp-wifi-login-pages
+#    - role: tepseg-ansible-openwisp-wifi-login-pages
     - role: tepseg-ansible-easyrsa
     - role: tepseg-ansible-openvpn
     - role: tepseg-ansible-postfix
@@ -72,14 +78,14 @@ ansible-galaxy install tepseg_ab.openwisp2 tepseg_ab.easyrsa tepseg_ab.openvpn t
     tepseg_github_shared_ssh_private_key: "<PATH_TO_TEPSEG_GITHUB_SSH_PRIVATE_KEY>"
     tepseg_github_shared_ssh_public_key: "<PATH_TO_TEPSEG_GITHUB_SSH_PUBLIC_KEY>"
     # Enable the modules you want to use
-    openwisp2_network_topology: true
-    openwisp2_firmware_upgrader: true
-    openwisp2_radius: true
+    openwisp2_network_topology: false
+    openwisp2_firmware_upgrader: false
+    openwisp2_radius: false
     openwisp2_monitoring: true
-    openwisp2_freeradius_install: true
+    openwisp2_freeradius_install: false
     # set to false when you don't want to register openwisp-radius
     # API endpoints.
-    openwisp2_radius_urls: true
+    openwisp2_radius_urls: false
 
     # EasyRSA
     easyrsa_generate_dh: true
@@ -96,11 +102,17 @@ ansible-galaxy install tepseg_ab.openwisp2 tepseg_ab.easyrsa tepseg_ab.openvpn t
     openvpn_use_pam: false
 
     #Wifi Login Page
-    wifi_login_pages_domains: ["wifi-login-page url"]
+    # wifi_login_pages_domains: ["wifi-login-page url"]
 
     # Postfix
     # When using AWS, uncomment
     # postfix_myhostname: "tepseg"
+
+    #Postgres / GIS
+    DB_NAME: "<Your DB NAME>"
+    DB_USER: "<Your DB USER>"
+    DB_HOST: "<Your DB HOST>"
+    DB_PASSWORD: "<Your DB PASSWORD>"
 ```
 
 =================
