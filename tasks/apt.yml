@@ -92,11 +92,64 @@
 - name: Install postgresql client drivers
   when: openwisp2_database.engine == "django.contrib.gis.db.backends.postgis"
   apt:
-    name: libpq-dev
+    name:
+      - libpq-dev
+      - postgresql
+      - postgresql-contrib
   retries: 5
   delay: 10
   register: result
   until: result is success
+
+- name: Create PostgreSQL user
+  become: yes
+  become_user: postgres
+  command: createuser -s "{{ DB_USER }}"
+  args:
+    executable: /usr/bin/createuser
+  when: openwisp2_database.engine == "django.contrib.gis.db.backends.postgis"
+
+- name: Set password for PostgreSQL user
+  become: yes
+  become_user: postgres
+  command: >
+    psql -c "ALTER USER {{ DB_USER }} WITH PASSWORD '{{ DB_PASSWORD }}';"
+  when: openwisp2_database.engine == "django.contrib.gis.db.backends.postgis"
+
+- name: Create PostgreSQL database
+  become: yes
+  become_user: postgres
+  command: createdb -O "{{ DB_USER }}" "{{ DB_NAME }}"
+  args:
+    executable: /usr/bin/createdb
+  when: openwisp2_database.engine == "django.contrib.gis.db.backends.postgis"
+
+- name: Modify postgresql.conf
+  become: yes
+  become_user: postgres
+  lineinfile:
+    path: /etc/postgresql/14/main/postgresql.conf
+    regexp: '^#?listen_addresses.*'
+    line: |
+      listen_addresses = '*'
+  notify:
+    - Restart PostgreSQL
+
+- name: Modify pg_hba.conf for remote access and authentication method
+  become: yes
+  become_user: postgres
+  lineinfile:
+    path: /etc/postgresql/14/main/pg_hba.conf
+    regexp: '^host\s+all\s+all\s+127.0.0.1/32\s+.*'
+    line: 'host    all             all             0.0.0.0/0               scram-sha-256'
+  notify:
+    - Restart PostgreSQL
+
+- name: Install PostGIS extension for PostgreSQL
+  apt:
+    name: postgresql-14-postgis-3
+    state: present
+  when: openwisp2_database.engine == "django.contrib.gis.db.backends.postgis"
 
 - name: Install cairo
   when: openwisp2_radius
