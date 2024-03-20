@@ -102,7 +102,7 @@ allow_world_readable_tmpfiles=true
     openvpn_use_pam: false
 
     #Wifi Login Page
-    wifi_login_pages_domains: ["wifi-login-page url"]
+    # wifi_login_pages_domains: ["wifi-login-page url"]
 
     # Postfix
     # When using AWS, uncomment
