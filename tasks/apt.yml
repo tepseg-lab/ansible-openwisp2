@@ -145,6 +145,8 @@
   notify:
     - Restart PostgreSQL
 
+- meta: flush_handlers
+
 - name: Install PostGIS extension for PostgreSQL
   apt:
     name: postgresql-14-postgis-3
